@@ -1,6 +1,5 @@
 # Locuras-de-productos
-=======
-# Locuras-de-productos
+
 
 
 Esta es una pagina web llamada "Locuaras de productos". Puedes visitarno en https://locurasdeproductos.es
