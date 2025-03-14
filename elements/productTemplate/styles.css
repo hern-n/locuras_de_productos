@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Tsukimi+Rounded&display=swap");
+
+/* Estilos base */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #a4cffa;
+    color: #333333;
+    opacity: 1; /* Cambiado a 1 para que el contenido sea visible desde el inicio */
+    transition: opacity 1s ease-in-out;
+    padding-top: 80px; /* Añadido para dejar espacio para la barra */
+}
+
+/* Barra de tareas */
+.options-bar {
+    background-color: #2c3e50;
+    color: #ffffff;
+    padding: 10px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: nowrap;
+    overflow: hidden; /* Asegura que no haya desbordamientos visuales */
+}
+
+/* Ajustes de los elementos dentro de la barra */
+.logo-button,
+.help-button {
+    flex-shrink: 1;
+    /* Permite que los elementos reduzcan su tamaño */
+}
+
+.logo-button {
+    height: 40px;
+    max-width: 150px;
+    transition: transform 0.3s ease;
+    margin-right: auto;
+}
+
+.help-button {
+    font-family: "Tsukimi Rounded", serif;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    font-size: 14px;
+    padding: 6px 30px;
+    max-width: 120px;
+    text-align: center;
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+}
+
+.help-button:hover {
+    transform: scale(1.1);
+}
+
+/* Logo dentro de la barra */
+.logo-button:hover {
+    transform: scale(1.1);
+}
+
+/* Contenedor principal */
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Imágenes del producto */
+.product-images {
+    display: flex;
+    overflow-x: scroll; /* Permite desplazamiento horizontal */
+    padding: 10px 0;
+    gap: 20px; /* Espacio entre las imágenes */
+    margin-bottom: 20px; /* Margen inferior a las imágenes */
+}
+
+.product-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Información del producto */
+.product-info {
+    flex: 1;
+    margin-left: 20px; /* Margen izquierdo para separar del contenido de las imágenes */
+}
+
+.product-info h1 {
+    color: #333333;
+    margin: 0 0 10px;
+}
+
+.product-info p {
+    color: #4d4d4d;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.product-info h2 {
+    color: #e67e22;
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+/* Botón de compra */
+.buy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #e67e22;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    margin-top: 20px; /* Margen superior para separar del precio */
+}
+
+.buy-button:hover {
+    background-color: #d35400;
+}
