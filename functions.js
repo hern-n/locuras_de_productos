@@ -50,8 +50,15 @@ export async function getNameProducts() {
 
 // Buscar elementos similares en un array
 export function findSimilarItems(array, searchTerm) {
-    return array.filter(item => item.toLowerCase().includes(searchTerm.toLowerCase()));
+    const searchTerms = searchTerm.toLowerCase().split(" "); // Dividir el término de búsqueda en palabras
+
+    return array.filter(item => {
+        const itemLower = item.toLowerCase();
+        // Verificar si todas las palabras del searchTerm están en el item
+        return searchTerms.every(term => itemLower.includes(term));
+    });
 }
+
 
 // Cargar y mostrar los productos buscados
 export async function loadSearchedProducts(array_products) {
