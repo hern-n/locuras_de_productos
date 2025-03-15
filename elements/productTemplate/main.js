@@ -19,7 +19,10 @@ async function getProductDetails(productTitle) {
                 // Manejar imágenes (eliminar campos vacíos)
                 product.images = [];
                 for (let j = 4; j < headers.length; j++) {
-                    if (values[j]) product.images.push(values[j].replace(/\\/g, "/")); // Unificar barras
+                    // Solo añadir la imagen si existe (es decir, si la columna no está vacía)
+                    if (values[j] && values[j].trim() !== "") {
+                        product.images.push(values[j].replace(/\\/g, "/")); // Unificar barras
+                    }
                 }
 
                 products.push(product);
@@ -40,16 +43,74 @@ function generateProductTemplate(product) {
     // Crear la barra de tareas
     document.body.appendChild(createTaskBar());
 
-    // Crear el contenedor de imágenes del producto
-    const productImages = document.createElement('div');
-    productImages.classList.add('product-images');
-    product.images.forEach((src, index) => {
-        const img = document.createElement('img');
-        img.classList.add('product-image');
-        img.src = src;
-        img.alt = `Producto ${index + 1}`;
-        productImages.appendChild(img);
-    });
+    // Solo crear el contenedor de imágenes si hay imágenes
+    if (product.images.length > 0) {
+        const productImagesContainer = document.createElement('div');
+        productImagesContainer.classList.add('product-images-container');  // Nuevo contenedor para el carrusel
+
+        // Contenedor de las imágenes
+        const productImages = document.createElement('div');
+        productImages.classList.add('product-images');
+        product.images.forEach((src, index) => {
+            const img = document.createElement('img');
+            img.classList.add('product-image');
+            img.src = src;
+            img.alt = `Producto ${index + 1}`;
+            productImages.appendChild(img);
+        });
+
+        // Crear las flechas de navegación
+        const prevButton = document.createElement('button');
+        prevButton.classList.add('carousel-button', 'prev');
+        prevButton.textContent = '❮';  // Flecha izquierda
+        prevButton.addEventListener('click', () => changeImage(-1));
+
+        const nextButton = document.createElement('button');
+        nextButton.classList.add('carousel-button', 'next');
+        nextButton.textContent = '❯';  // Flecha derecha
+        nextButton.addEventListener('click', () => changeImage(1));
+
+        productImagesContainer.appendChild(prevButton);
+        productImagesContainer.appendChild(productImages);
+        productImagesContainer.appendChild(nextButton);
+
+        document.body.appendChild(productImagesContainer);
+
+        let currentImageIndex = 0;
+
+        // Función para cambiar la imagen
+        function changeImage(direction) {
+            currentImageIndex += direction;
+            if (currentImageIndex < 0) currentImageIndex = product.images.length - 1;
+            if (currentImageIndex >= product.images.length) currentImageIndex = 0;
+            updateImageDisplay();
+        }
+
+        // Función para actualizar las imágenes visibles
+        function updateImageDisplay() {
+            const images = document.querySelectorAll('.product-image');
+            images.forEach((img, index) => {
+                img.style.display = index === currentImageIndex ? 'block' : 'none';
+            });
+        }
+
+        // Inicializa la primera imagen visible
+        updateImageDisplay();
+
+        // Evento para detectar las teclas de dirección
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeImage(-1); // Flecha izquierda
+            } else if (e.key === 'ArrowRight') {
+                changeImage(1);  // Flecha derecha
+            }
+        });
+
+        // Función para cambiar automáticamente cada 2-3 segundos
+        setInterval(() => {
+            changeImage(1);  // Avanza a la siguiente imagen
+        }, 2500);  // Cambia la imagen cada 2.5 segundos
+    }
 
     // Crear la información del producto
     const productInfo = document.createElement('div');
@@ -60,7 +121,7 @@ function generateProductTemplate(product) {
     productInfo.appendChild(productTitle);
 
     const productDescription = document.createElement('p');
-    productDescription.textContent = product.description;  // Corrección aquí
+    productDescription.textContent = product.description;
     productInfo.appendChild(productDescription);
 
     const productPrice = document.createElement('h2');
@@ -73,8 +134,7 @@ function generateProductTemplate(product) {
     buyButton.textContent = "Comprar ahora";
     productInfo.appendChild(buyButton);
 
-    // Añadir todo al body
-    document.body.appendChild(productImages);
+    // Añadir la información al body
     document.body.appendChild(productInfo);
 
     // Animación de aparición al cargar la página
@@ -100,7 +160,6 @@ function createTaskBar() {
     optionsBar.className = "options-bar";
 
     // Logo (botón para volver a la pantalla inicial)
-
     const logoSrc = document.createElement("a");
     logoSrc.href = "/index.html";
 
@@ -113,8 +172,6 @@ function createTaskBar() {
 
     logoSrc.appendChild(logoButton);
     optionsBar.appendChild(logoSrc);
-
-
 
     // Botón de ayuda
     const helpButton = document.createElement("a");

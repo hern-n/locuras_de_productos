@@ -89,9 +89,10 @@ body {
 }
 
 .product-image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
+    flex: 1 0 100%; /* Asegura que todas las imágenes ocupen el mismo espacio */
+    height: 300px; /* Tamaño fijo para las imágenes */
+    object-fit: contain; /* Ajusta las imágenes para que no se deformen */
+    background-color: #0a2f6a; /* Fondo azul para las áreas vacías */
     border-radius: 10px;
 }
 
@@ -138,3 +139,60 @@ body {
 .buy-button:hover {
     background-color: #d35400;
 }
+
+/* Contenedor del carrusel */
+.product-images-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Ajusta el tamaño máximo */
+    margin: 0 auto;
+}
+
+/* Carrusel de imágenes */
+.product-images {
+    display: flex;
+    overflow: hidden; /* Oculta las imágenes fuera del área visible */
+}
+
+.product-image {
+    width: 100%; /* Hace que todas las imágenes ocupen el mismo ancho */
+    height: 300px; /* Altura fija */
+    object-fit: contain; /* Ajusta las imágenes sin deformarlas */
+    background-color: #a4cffa; /* Fondo azul para las áreas vacías */
+}
+
+/* Estilo de las flechas de navegación */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem; /* Tamaño más pequeño */
+    background: rgba(0, 0, 0, 0.4); /* Fondo más sutil */
+    color: white;
+    border: none;
+    padding: 8px 12px; /* Flechas más pequeñas */
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+    user-select: none;
+    transition: transform 0.3s ease-in-out; /* Animación de salto */
+}
+
+.carousel-button:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Posición de las flechas */
+.prev {
+    left: -50px; /* Flecha fuera del contenedor */
+}
+
+.next {
+    right: -50px; /* Flecha fuera del contenedor */
+}
+
+/* Animación de salto */
+.carousel-button:active {
+    transform: scale(1.2); /* Escala mayor cuando se hace clic */
+}
+
