@@ -1,3 +1,5 @@
+const curency = "€"
+
 // Cargar y mostrar todos los productos
 export function loadProducts() {
     const productGrid = document.createElement("div");
@@ -102,7 +104,7 @@ export async function loadSearchedProducts(array_products) {
                 searchTitle.className = "search-title";
 
                 const searchPrice = document.createElement("p");
-                searchPrice.textContent = price;
+                searchPrice.textContent = price + curency;
                 searchPrice.className = "search-price";
 
                 // Agregar título y precio al contenedor de texto
@@ -149,7 +151,7 @@ function createProductElement(title, href, imgPrincp, price) {
     productTitle.className = "product-title";
 
     const productPrice = document.createElement("p");
-    productPrice.textContent = price;
+    productPrice.textContent = price + curency;
     productPrice.className = "product-price";
 
     productItem.appendChild(productImage);

@@ -1,3 +1,5 @@
+const curency = "€"
+
 async function getProductDetails(productTitle) {
     // Cargar el archivo CSV con fetch
     return fetch("../products.csv")
@@ -125,7 +127,7 @@ function generateProductTemplate(product) {
     productInfo.appendChild(productDescription);
 
     const productPrice = document.createElement('h2');
-    productPrice.textContent = product.price;
+    productPrice.textContent = product.price + curency;
     productInfo.appendChild(productPrice);
 
     const buyButton = document.createElement('a');
