@@ -1,38 +1,60 @@
 const curency = "€"
 
-// Cargar y mostrar todos los productos
-export function loadProducts() {
+function randomNumbers(numero_inicial, productos_seleccionados = 8) {
+    if (numero_inicial < productos_seleccionados) {
+        throw new Error(`dEl número de productos debe ser mayor o igual al número de seleccionados ${numero_inicial}`);
+    }
+
+    let numeros = new Set();
+    while (numeros.size < productos_seleccionados) {
+        numeros.add(Math.floor(Math.random() * numero_inicial) + 1);
+    }
+    return [...numeros];
+}
+
+// Cargar y mostrar productos aleatorios
+export async function loadProducts() {
     const productGrid = document.createElement("div");
     productGrid.className = "product-grid";
 
-    fetch("./elements/products.csv")
-        .then(response => {
-            if (!response.ok) throw new Error("Error al cargar el archivo CSV");
-            return response.text();
-        })
-        .then(csvText => {
-            const rows = csvText.trim().split("\n");
+    try {
+        const response = await fetch("./elements/products.csv");
+        if (!response.ok) throw new Error("Error al cargar el archivo CSV");
 
-            if (rows.length <= 1) {
-                throw new Error("El archivo CSV no contiene datos.");
-            }
+        const csvText = await response.text();
+        const rows = csvText.trim().split("\n");
 
-            rows.slice(1).forEach(row => {
+        if (rows.length <= 1) {
+            throw new Error("El archivo CSV no contiene datos.");
+        }
+
+        // Obtener cantidad de productos y seleccionar aleatorios
+        const possible_names = rows.length - 1; // Descontamos la cabecera
+        const deffinite_products = randomNumbers(possible_names);
+
+        console.log("Índices seleccionados:", deffinite_products);
+
+        // Filtrar y mostrar solo los productos aleatorios
+        rows.slice(1).forEach((row, index) => {
+            if (deffinite_products.includes(index + 1)) { // +1 porque randomNumbers empieza desde 1
                 const [title, href, price, description, imgPrincp] = parseCSVRow(row);
 
                 if (title && href && imgPrincp && price) {
                     const productItem = createProductElement(title, href, imgPrincp, price);
                     productGrid.appendChild(productItem);
                 }
-            });
+            }
+        });
 
-            // Agregar un mensaje de "Pronto habrá más"
-            const finalItem = createFinalItem("¡Pronto habrá más!");
-            productGrid.appendChild(finalItem);
+        // Agregar un mensaje de "Pronto habrá más"
+        const finalItem = createFinalItem("¡Pronto habrá más!");
+        productGrid.appendChild(finalItem);
 
-            document.body.appendChild(productGrid);
-        })
-        .catch(error => console.error("Error loading CSV:", error));
+        document.body.appendChild(productGrid);
+
+    } catch (error) {
+        console.error("Error loading CSV:", error);
+    }
 }
 
 // Obtener todos los nombres de productos

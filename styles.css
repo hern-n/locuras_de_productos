@@ -112,6 +112,13 @@ body {
     margin-top: 5px;
 }
 
+.text-random{
+    font-family: "Tsukimi Rounded", serif;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
 /* Grid de productos */
 .product-grid {
     display: grid;

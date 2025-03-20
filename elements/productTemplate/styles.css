@@ -166,20 +166,21 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1.5rem; /* Tamaño más pequeño */
-    background: rgba(0, 0, 0, 0.4); /* Fondo más sutil */
-    color: white;
+    font-size: 2.25rem; /* Tamaño más pequeño */
+    background: #a4cffa; /* Fondo más sutil */
+    color: #2c3e50;
     border: none;
-    padding: 8px 12px; /* Flechas más pequeñas */
+    padding: 12px 18px; /* Flechas más pequeñas */
     cursor: pointer;
     z-index: 1;
     border-radius: 50%;
     user-select: none;
-    transition: transform 0.3s ease-in-out; /* Animación de salto */
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease; /* Animación suave para transformaciones y cambio de color */
 }
 
+/* Efecto hover para mover las flechas hacia arriba */
 .carousel-button:hover {
-    background: rgba(0, 0, 0, 0.6);
+    transform: translateY(10px); /* Mueve el botón hacia arriba */
 }
 
 /* Posición de las flechas */
@@ -191,8 +192,13 @@ body {
     right: -50px; /* Flecha fuera del contenedor */
 }
 
-/* Animación de salto */
+/* Animación cuando se hace clic (active) */
 .carousel-button:active {
-    transform: scale(1.2); /* Escala mayor cuando se hace clic */
+    transform: scale(1); /* Escala mayor al hacer clic */
+}
+
+/* Si quieres que el color cambie también con hover */
+.carousel-button:hover {
+    background-color: #a4cffa; /* Color más oscuro al pasar el ratón */
 }
 

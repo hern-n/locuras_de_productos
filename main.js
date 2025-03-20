@@ -25,6 +25,13 @@ function initialScreen() {
     // Título principal
     document.body.appendChild(createTitleContainer());
 
+    //Testo de productos aleatorios
+    const textRandomProducts = document.createElement("h2");
+    textRandomProducts.textContent = "Tu selección de productos de hoy: (cuando tengamos más productos, se verán los destacados)";
+    textRandomProducts.className = "text-random";
+
+    document.body.appendChild(textRandomProducts);
+
     // Cargar productos
     loadProducts();
 }
