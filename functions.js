@@ -2,7 +2,7 @@ const curency = "€"
 
 function randomNumbers(numero_inicial, productos_seleccionados = 8) {
     if (numero_inicial < productos_seleccionados) {
-        throw new Error(`dEl número de productos debe ser mayor o igual al número de seleccionados ${numero_inicial}`);
+        productos_seleccionados = numero_inicial;
     }
 
     let numeros = new Set();
