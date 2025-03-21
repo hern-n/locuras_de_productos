@@ -136,6 +136,15 @@ function generateProductTemplate(product) {
     buyButton.textContent = "Comprar ahora";
     productInfo.appendChild(buyButton);
 
+    //Salto de linea
+    const jump = document.createElement("br");
+    productInfo.appendChild(jump);
+
+    //Información de después (sobre la compra)
+    const buyInfo = document.createElement("small");
+    buyInfo.textContent = "El boton de compra te llevará a la página oficial de ámazon. Desde allí lo podrás comprar de forma rápida, fácil y segura.";
+    productInfo.appendChild(buyInfo);
+
     // Añadir la información al body
     document.body.appendChild(productInfo);
 
