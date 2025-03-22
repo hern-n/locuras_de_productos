@@ -162,6 +162,30 @@ body {
     margin-bottom: 10px;
 }
 
+.final-grid-image {
+    max-width: 100%;
+    height: 166px;
+    object-fit: contain;
+}
+
+.search-image-container {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos estén apilados verticalmente */
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    text-align: center; /* Asegura que el texto esté centrado */
+}
+
+.not-search-image {
+    max-width: 150px; /* Tamaño pequeño de la imagen */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: contain;
+    margin-top: 10px; /* Espacio entre el texto y la imagen */
+    display: block; /* Hace que la imagen ocupe su propia línea */
+}
+
+
 /* Barra de búsqueda */
 .search-bar {
     display: flex;

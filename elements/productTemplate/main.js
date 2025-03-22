@@ -123,8 +123,9 @@ function generateProductTemplate(product) {
     productInfo.appendChild(productTitle);
 
     const productDescription = document.createElement('p');
-    productDescription.textContent = product.description;
+    productDescription.innerHTML = product.description.replace(/\n/g, "<br>");
     productInfo.appendChild(productDescription);
+    
 
     const productPrice = document.createElement('h2');
     productPrice.textContent = product.price + curency;
@@ -143,6 +144,7 @@ function generateProductTemplate(product) {
     //Información de después (sobre la compra)
     const buyInfo = document.createElement("small");
     buyInfo.textContent = "El boton de compra te llevará a la página oficial de ámazon. Desde allí lo podrás comprar de forma rápida, fácil y segura.";
+    buyInfo.className = "buyInfo";
     productInfo.appendChild(buyInfo);
 
     // Añadir la información al body

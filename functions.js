@@ -1,6 +1,6 @@
 const curency = "€"
 
-function randomNumbers(numero_inicial, productos_seleccionados = 8) {
+function randomNumbers(numero_inicial, productos_seleccionados = 9) {
     if (numero_inicial < productos_seleccionados) {
         productos_seleccionados = numero_inicial;
     }
@@ -47,7 +47,7 @@ export async function loadProducts() {
         });
 
         // Agregar un mensaje de "Pronto habrá más"
-        const finalItem = createFinalItem("¡Pronto habrá más!");
+        const finalItem = createFinalItem("Sigue buscando entre nuestros productos, ¡nunca sabes lo que te puedes encontrar!");
         productGrid.appendChild(finalItem);
 
         document.body.appendChild(productGrid);
@@ -193,6 +193,11 @@ function createFinalItem(message) {
     finalTitle.textContent = message;
     finalTitle.className = "product-title";
 
+    const finalImage = document.createElement("img");
+    finalImage.src = "./elements/señor_comprando.png";
+    finalImage.className = "final-grid-image";
+
     finalItem.appendChild(finalTitle);
+    finalItem.appendChild(finalImage);
     return finalItem;
 }

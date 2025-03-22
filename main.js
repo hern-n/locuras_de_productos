@@ -27,7 +27,7 @@ function initialScreen() {
 
     //Testo de productos aleatorios
     const textRandomProducts = document.createElement("h2");
-    textRandomProducts.textContent = "Tu selección de productos de hoy: (cuando tengamos más productos, se verán los destacados)";
+    textRandomProducts.textContent = "Tu selección de productos de hoy:";
     textRandomProducts.className = "text-random";
 
     document.body.appendChild(textRandomProducts);
@@ -48,15 +48,22 @@ function searchScreen() {
 
     // Mostrar resultados
     const imageContainer = document.createElement("div");
-    imageContainer.className = "image-container";
+    imageContainer.className = "search-image-container";
 
     const maintenanceText = document.createElement("h1");
     maintenanceText.textContent = search_result.length > 0 
-        ? `Resultados de búsqueda para "${exported_names}"`
-        : `No se han encontrado resultados para "${exported_names}"`;
+        ? `Resultados de búsqueda para "${exported_names}":`
+        : `Ups, no hemos encontrado nada para "${exported_names}". Busca algo parecido, o pulsa "¿necesitas ayuda?" ↗ para que te podamos ayudar.`;
+        maintenanceText.className = "sub-title";
 
-    maintenanceText.className = "sub-title";
+    const SearchImage = document.createElement("img");
+    SearchImage.src = "/elements/busqueda.png";
+    SearchImage.className = "not-search-image";
+
     imageContainer.appendChild(maintenanceText);
+    if (search_result.length == 0 ) {
+        imageContainer.appendChild(SearchImage);
+    };
     document.body.appendChild(imageContainer);
 
     if (search_result.length > 0) {
