@@ -38,19 +38,17 @@ body {
     overflow: hidden;
 }
 
-.logo-button,
-.help-button {
-    flex-shrink: 1;
-}
-
 .logo-button {
+    order: -2;
     height: 40px;
     max-width: 150px;
     transition: transform 0.3s ease;
     margin-right: auto;
+    flex-shrink: 1;
 }
 
 .help-button {
+    order: 0;
     font-family: "Tsukimi Rounded", serif;
     color: var(--toolbar-text);
     text-decoration: none;
@@ -63,6 +61,7 @@ body {
     max-width: 120px;
     text-align: center;
     white-space: nowrap;
+    flex-shrink: 1;
 }
 
 .help-button:hover {
@@ -115,6 +114,12 @@ body {
     font-size: 20px;
     margin-top: 5px;
     margin-left: 30px;
+}
+
+.title-notFoundProducts {
+    font-family: "Tsukimi Rounded", serif;
+    font-size: 20px;
+    margin-top: 20px;
 }
 
 /* Grid de productos */
@@ -188,6 +193,7 @@ body {
 
 /* Barra de búsqueda */
 .search-bar {
+    order: -1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -297,6 +303,18 @@ body {
     .sub-title {
         font-size: 18px;
     }
+
+    .help-button {
+        order: -1;
+        font-size: 12px;
+        padding: 4px 8px;
+        margin-right: 15px;
+    }
+
+    .search-bar {
+        order: 0;
+        width: 100%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -310,8 +328,10 @@ body {
     }
 
     .help-button {
+        order: -1;
         font-size: 12px;
         padding: 4px 8px;
+        margin-right: 15px;
     }
 
     .logo-image {
@@ -327,10 +347,15 @@ body {
     }
 
     .search-bar {
+        order: 0;
         width: 100%;
     }
     
     .image-container {
         margin: 100px 0;
+    }
+
+    .title-notFoundProducts {
+        margin-top: 60px;
     }
 }

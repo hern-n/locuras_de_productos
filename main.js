@@ -54,7 +54,7 @@ function searchScreen() {
     maintenanceText.textContent = search_result.length > 0 
         ? `Resultados de búsqueda para "${exported_names}":`
         : `Ups, no hemos encontrado nada para "${exported_names}". Busca algo parecido, o pulsa "¿necesitas ayuda?" ↗ para que te podamos ayudar.`;
-        maintenanceText.className = "sub-title";
+        maintenanceText.className = "title-notFoundProducts";
 
     const SearchImage = document.createElement("img");
     SearchImage.src = "/elements/busqueda.png";
