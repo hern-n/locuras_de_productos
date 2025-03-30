@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initialScreen();
 });
 
-function initialScreen() {
+async function initialScreen() {
     // Limpiar el DOM
     document.body.innerHTML = "";
 
@@ -33,10 +33,13 @@ function initialScreen() {
     document.body.appendChild(textRandomProducts);
 
     // Cargar productos
-    loadProducts();
+    await loadProducts();
+
+    //Crear la parte final
+    document.body.appendChild(createLicensePart());
 }
 
-function searchScreen() {
+async function searchScreen() {
     // Limpiar el DOM
     document.body.innerHTML = "";
 
@@ -67,8 +70,10 @@ function searchScreen() {
     document.body.appendChild(imageContainer);
 
     if (search_result.length > 0) {
-        loadSearchedProducts(search_result);
+        await loadSearchedProducts(search_result);
     }
+
+    document.body.appendChild(createLicensePart());
 }
 
 // Función para crear la barra de tareas (logo, barra de búsqueda y botón de ayuda)
@@ -162,6 +167,34 @@ function createTitleContainer() {
     titleContainer.appendChild(mainTitle);
     titleContainer.appendChild(subTitle);
     return titleContainer;
+}
+
+//Para todo lo que hay debajo de las páginas (derechos, licencias, etc)
+function createLicensePart() {
+    const mainDiv = document.createElement("div");
+    mainDiv.className = "license-div";
+
+    const space = document.createElement("div");
+    space.className = "invisible-div";
+
+    const text1 = document.createElement("h5");
+    text1.textContent = "Esta página petenece al programa de Ámazon afiliados, y todos los productos han sido encontrados en Ámazon.";
+    text1.className = "text-license";
+
+    const text2 = document.createElement("h5");
+    const url = "https://afiliados.amazon.es/";
+    text2.innerHTML = `Para más información visita la pagina de <a href="${url}" target="_blank" class="text-link">Ámazon afiliados.</a>`;
+    text2.className = "text-license";
+
+    const image = document.createElement("img");
+    image.src = "./elements/Logotipo_locuras_de_productos_blanco.png"
+    image.className = "image-license";
+
+    mainDiv.appendChild(space);
+    mainDiv.appendChild(text1);
+    mainDiv.appendChild(text2);
+    mainDiv.appendChild(image);
+    return mainDiv;
 }
 
 function addHoverEffect(element) {
