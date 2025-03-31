@@ -398,4 +398,8 @@ body {
     .title-notFoundProducts {
         margin-top: 60px;
     }
+
+    .image-license {
+        max-height: 65px; /* Limita la altura máxima de la imagen */
+    }
 }
