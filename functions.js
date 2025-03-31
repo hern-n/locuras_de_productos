@@ -1,6 +1,7 @@
 const curency = "€"
+const productos_selec = 24
 
-function randomNumbers(numero_inicial, productos_seleccionados = 9) {
+function randomNumbers(numero_inicial, productos_seleccionados = productos_selec) {
     if (numero_inicial < productos_seleccionados) {
         productos_seleccionados = numero_inicial;
     }
@@ -31,8 +32,6 @@ export async function loadProducts() {
         // Obtener cantidad de productos y seleccionar aleatorios
         const possible_names = rows.length - 1; // Descontamos la cabecera
         const deffinite_products = randomNumbers(possible_names);
-
-        console.log("Índices seleccionados:", deffinite_products);
 
         // Filtrar y mostrar solo los productos aleatorios
         rows.slice(1).forEach((row, index) => {
