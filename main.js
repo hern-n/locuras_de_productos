@@ -73,6 +73,7 @@ async function searchScreen() {
         await loadSearchedProducts(search_result);
     }
 
+    document.body.appendChild(createSpaceLicense());
     document.body.appendChild(createLicensePart());
 }
 
@@ -195,6 +196,12 @@ function createLicensePart() {
     mainDiv.appendChild(text2);
     mainDiv.appendChild(image);
     return mainDiv;
+}
+
+function createSpaceLicense() {
+    const space = document.createElement("div");
+    space.className = "space-license";
+    return space;
 }
 
 function addHoverEffect(element) {

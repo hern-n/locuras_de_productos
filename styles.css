@@ -325,6 +325,10 @@ body {
     margin-top: 10px;  /* Espacio entre la imagen y el texto */
 }
 
+.space-license {
+    height: 123px;
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .options-bar {
