@@ -150,7 +150,7 @@ body {
 .product-image {
     width: 100%;
     height: 150px;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 .product-title {
@@ -362,6 +362,7 @@ body {
 }
 
 @media (max-width: 480px) {
+    /*Barra de tareas*/
     .options-bar {
         padding: 5px 10px;
     }
@@ -378,12 +379,13 @@ body {
         margin-right: 15px;
     }
 
+    /*Titulo y logo*/
     .logo-image {
         width: 120px;
     }
 
     .main-title {
-        font-size: 20px;
+        font-size: 25px;
     }
 
     .product-grid {
@@ -403,6 +405,11 @@ body {
         margin-top: 60px;
     }
 
+    .text-random {
+        font-size: 17px;
+        }
+
+    /*Parte final*/
     .image-license {
         max-height: 65px; /* Limita la altura máxima de la imagen */
     }
