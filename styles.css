@@ -140,6 +140,8 @@ body {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 256px;
+    width: 280px;
 }
 
 .product-item:hover {
@@ -157,11 +159,19 @@ body {
     font-family: "Tsukimi Rounded", serif;
     font-size: 16px;
     margin: 10px 0 5px;
+
+    /* 🔽 NUEVO: truncado en varias líneas */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    /* ajusta este número según la altura deseada */
+    line-clamp: 6;
 }
 
 .product-price {
     font-family: "Tsukimi Rounded", serif;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--highlight-color);
     font-weight: bold;
     margin-bottom: 10px;
@@ -173,21 +183,35 @@ body {
     object-fit: contain;
 }
 
+.final-grid-title {
+    font-family: "Tsukimi Rounded", serif;
+    font-size: 16px;
+    margin: 10px 0 5px;
+}
+
 .search-image-container {
     margin-top: 40px;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos estén apilados verticalmente */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    align-items: center; /* Centra los elementos verticalmente */
-    text-align: center; /* Asegura que el texto esté centrado */
+    flex-direction: column;
+    /* Asegura que los elementos estén apilados verticalmente */
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    align-items: center;
+    /* Centra los elementos verticalmente */
+    text-align: center;
+    /* Asegura que el texto esté centrado */
 }
 
 .not-search-image {
-    max-width: 150px; /* Tamaño pequeño de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 150px;
+    /* Tamaño pequeño de la imagen */
+    height: auto;
+    /* Mantiene la proporción de la imagen */
     object-fit: contain;
-    margin-top: 10px; /* Espacio entre el texto y la imagen */
-    display: block; /* Hace que la imagen ocupe su propia línea */
+    margin-top: 10px;
+    /* Espacio entre el texto y la imagen */
+    display: block;
+    /* Hace que la imagen ocupe su propia línea */
 }
 
 
@@ -276,6 +300,9 @@ body {
     font-size: 18px;
     margin: 0 0 10px;
     color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .search-price {
@@ -293,11 +320,14 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* Centra los elementos verticalmente */
-    align-items: center;      /* Centra los elementos horizontalmente */
+    justify-content: center;
+    /* Centra los elementos verticalmente */
+    align-items: center;
+    /* Centra los elementos horizontalmente */
     text-align: center;
     padding: 20px;
-    box-sizing: border-box;  /* Asegura que el padding no afecte al tamaño total */
+    box-sizing: border-box;
+    /* Asegura que el padding no afecte al tamaño total */
 }
 
 .invisible-div {
@@ -308,7 +338,8 @@ body {
 .text-license {
     font-family: "Tsukimi Rounded", serif;
     font-weight: 200;
-    margin-bottom: 10px; /* Espacio entre el texto y la imagen */
+    margin-bottom: 10px;
+    /* Espacio entre el texto y la imagen */
 }
 
 .text-link {
@@ -317,12 +348,17 @@ body {
 }
 
 .image-license {
-    max-width: 80%;  /* Limita el ancho máximo de la imagen */
-    max-height: 100px; /* Limita la altura máxima de la imagen */
-    width: auto;  /* Mantiene el tamaño proporcional de la imagen */
+    max-width: 80%;
+    /* Limita el ancho máximo de la imagen */
+    max-height: 100px;
+    /* Limita la altura máxima de la imagen */
+    width: auto;
+    /* Mantiene el tamaño proporcional de la imagen */
     height: auto;
-    object-fit: contain; /* Asegura que la imagen se mantenga dentro del contenedor sin deformarse */
-    margin-top: 10px;  /* Espacio entre la imagen y el texto */
+    object-fit: contain;
+    /* Asegura que la imagen se mantenga dentro del contenedor sin deformarse */
+    margin-top: 10px;
+    /* Espacio entre la imagen y el texto */
 }
 
 .space-license {
@@ -362,6 +398,7 @@ body {
 }
 
 @media (max-width: 480px) {
+
     /*Barra de tareas*/
     .options-bar {
         padding: 5px 10px;
@@ -396,7 +433,7 @@ body {
         order: 0;
         width: 100%;
     }
-    
+
     .image-container {
         margin: 60px 0;
     }
@@ -407,10 +444,11 @@ body {
 
     .text-random {
         font-size: 17px;
-        }
+    }
 
     /*Parte final*/
     .image-license {
-        max-height: 65px; /* Limita la altura máxima de la imagen */
+        max-height: 65px;
+        /* Limita la altura máxima de la imagen */
     }
 }

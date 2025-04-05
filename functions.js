@@ -190,7 +190,7 @@ function createFinalItem(message) {
 
     const finalTitle = document.createElement("h3");
     finalTitle.textContent = message;
-    finalTitle.className = "product-title";
+    finalTitle.className = "final-grid-title";
 
     const finalImage = document.createElement("img");
     finalImage.src = "./elements/señor_comprando.png";
