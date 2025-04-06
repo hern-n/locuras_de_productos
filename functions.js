@@ -1,7 +1,7 @@
 const curency = "€"
-const productos_selec = 24
+const filas_productos = 6
 
-function randomNumbers(numero_inicial, productos_seleccionados = productos_selec) {
+function randomNumbers(numero_inicial, productos_seleccionados = (filas_productos*5 - 1)) {
     if (numero_inicial < productos_seleccionados) {
         productos_seleccionados = numero_inicial;
     }
