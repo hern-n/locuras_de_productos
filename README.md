@@ -3,9 +3,9 @@
 Una tienda virtual de afiliados de Amazon — 100% estática, sin backend, sin frameworks. Generada con HTML, CSS y JavaScript puro.
 
 ## 🌐 Enlaces
+- **Web**: [https://locuras-de-productos.vercel.app](https://locuras-de-productos.vercel.app)
 
-- **Web**: [https://locurasdeproductos.es](https://locurasdeproductos.es)
-- **API pública**: `https://locurasdeproductos.es/api/logo` (devuelve el logotipo PNG)
+- **API pública**: `https://locuras-de-productos.vercel.app/api/logo` (devuelve el logotipo PNG)
 
 ---
 
@@ -248,7 +248,7 @@ Implementada mediante un rewrite en `vercel.json`:
 }
 ```
 
-Acceder a `https://locurasdeproductos.es/api/logo` devuelve directamente la imagen PNG del logotipo. Es útil para usos externos (embeds, perfiles de redes sociales, etc.). Incluye cabeceras CORS y caché.
+Acceder a `https://locuras-de-productos.vercel.app/api/logo` devuelve directamente la imagen PNG del logotipo. Es útil para usos externos (embeds, perfiles de redes sociales, etc.). Incluye cabeceras CORS y caché.
 
 ---
 
