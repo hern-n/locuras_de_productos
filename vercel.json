@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    { "source": "/api/logo", "destination": "/elements/Logotipo_locuras_de_productos_resaltado.png" }
+  ],
+  "headers": [
+    {
+      "source": "/api/logo",
+      "headers": [
+        { "key": "Content-Type", "value": "image/png" },
+        { "key": "Cache-Control", "value": "public, max-age=86400" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}

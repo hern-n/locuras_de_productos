@@ -1,0 +1,13 @@
+.venv/
+venv/
+env/
+node_modules/
+vendor/
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+*.tmp
+.env
+.env.local
