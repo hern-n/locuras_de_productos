@@ -1,0 +1,18 @@
+name: Locuras de Productos
+description: >-
+  Una tienda virtual de afiliados de Amazon — 100% estática, sin backend, sin frameworks. Generada con HTML, CSS y
+  JavaScript puro.
+author: Hernán
+technologies:
+  - HTML
+  - CSS
+  - JavaScript
+  - Vercel
+repository: https://github.com/hern-n/locuras_de_productos.git
+homepage: https://locuras-de-productos.vercel.app
+tags:
+  - web
+  - static-site
+  - affiliate
+  - ecommerce
+lastModified: '2026-07-02T15:32:03.123Z'
